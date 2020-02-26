@@ -17,8 +17,8 @@ class MainWindow(QtWidgets.QMainWindow):
     def list_usb(self):
         dev = usb.core.find(find_all=True)
         for cfg in dev:
-            print('VendorID={0}({1}) & ProductID={2}({3})'.format(str(cfg.idVendor), hex(cfg.idVendor),
-                                                                  str(cfg.idProduct), hex(cfg.idProduct)))
+            print('VendorID={}(0x{:04X}) & ProductID={}(0x{:04X})'.format(str(cfg.idVendor), cfg.idVendor,
+                                                                  str(cfg.idProduct), cfg.idProduct))
             print('-------------------------------------------------------------------------------------')
 
 if __name__ == '__main__':
