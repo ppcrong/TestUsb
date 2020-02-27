@@ -10,7 +10,11 @@ Reference:
 Dependency:
 
    pip3 install PyQt5
+
    pip3 install pyqt5-tools
+
    pip install pyusb
+
    Download libusb from [libusb releases](https://github.com/libusb/libusb/releases)
+
    Unzip libusb-xxx.7z and copy ***\MS64\dll\libusb-1.0.dll*** to <u>**C:\Windows\System32**</u>
