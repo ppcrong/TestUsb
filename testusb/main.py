@@ -21,11 +21,12 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
             dev = usb.core.find(find_all=True)
             list_usb = list(dev)
+            print("%s libusb device(s) found..." % len(list_usb))
             for cfg in list_usb:
                 cfg.set_configuration()
+                print('-------------------------------------------------------------------------------------')
                 print('VendorID={}(0x{:04X}) & ProductID={}(0x{:04X})'.format(str(cfg.idVendor), cfg.idVendor,
                                                                               str(cfg.idProduct), cfg.idProduct))
-                print('-------------------------------------------------------------------------------------')
         except Exception as e:
             print(e)
 
