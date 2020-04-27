@@ -1,0 +1,93 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "c2d809275e62df6f5000ba02bfc0a9bc18b51ad9dd33d28e832e39f8f3072b1c"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.7"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "click": {
+            "hashes": [
+                "sha256:8a18b4ea89d8820c5d0c7da8a64b2c324b4dabb695804dbfea19b9be9d88c0cc",
+                "sha256:e345d143d80bf5ee7534056164e5e112ea5e22716bbb1ce727941f4c8b471b9a"
+            ],
+            "version": "==7.1.1"
+        },
+        "pyqt5": {
+            "hashes": [
+                "sha256:4d51a245d64fbd85c77ba3dee12b8fe018a440ccb49fd1cb0e4587c360655d3c",
+                "sha256:70954a2d182c8634e3b5f9deeb4230f186b59ec1166f3142cb523b74876c0d98",
+                "sha256:aa75b829cd977ca796262fcfe0dc8fc72f8413da4e5e2795e63897e1abfd2258",
+                "sha256:afbee0925439124b5c52dacaf9a6d8d4e160e36b636a6f9023832a696e15e3e9"
+            ],
+            "index": "pypi",
+            "version": "==5.13.0"
+        },
+        "pyqt5-sip": {
+            "hashes": [
+                "sha256:01919371d32b26208b2f0318f1e15680d3aa60d1ced1812a5dac8bdb483fea69",
+                "sha256:11f8cc2de287c3457fee53e781f06fb71f04251e7ae408ed22696ed65fd2bcf4",
+                "sha256:168a6d700daf366b7cf255a8cabf8d07bfe2294859e6b3b2636c36c2f89265c9",
+                "sha256:16a19b9f36985b8bff30b89fb8859d831713dd528fba5600563e36ff077960a2",
+                "sha256:16a9a4daf85bfaa3aec35237ff28d8773a3ec937d9f8dc7fc3db7716de42d4a9",
+                "sha256:31c74602ccd6b70e4352550eb41aa980dc1d6009444f3c8eb1b844e84bd144cf",
+                "sha256:360de29634e2ce1df84d2b588bd8c1a29b768f3a5225869d63adb03bc21bd32a",
+                "sha256:3cb9076ba0e574b2f026759103eb0e12051128714f5aa136cca53229d3ad72d1",
+                "sha256:4f87d59d29ca1c5a4005bbec27af002be787210dc5f8f87fe5d747883a836083",
+                "sha256:65fceeea2ac738a92f7e3e459ece1b4e2fbf49fd1d6b732a73d0d4bcfc434452",
+                "sha256:85e68b8936f1756060ddcb3ef0a84af78ce89993fa6594b3049a0eca53d6d2fa",
+                "sha256:9dd5769e83e64d017d02981563c8159d825425b6c4998c937a880888f4dcb7a3",
+                "sha256:a8a6c0512641fc042726b6253b2d5f3f3f800098334d198d8ebdf337d85ab3d7",
+                "sha256:b068f4791e97427d82a27e7df28cc3ee33f7e4353f48ed6a123f8cdba44266b2",
+                "sha256:b34c1f227a8f8e97059f20e5424f117f66a302b42e34d4039158494c6371b1ce",
+                "sha256:b68cfe632a512c0551e8860f35c1fcab5cd1ad5e168b4814fddd88121f447b0a",
+                "sha256:df4f5cdb86f47df5f6fc35be29cc45df7b5a2c171d07dbf377d558b226554ea3"
+            ],
+            "version": "==12.7.2"
+        },
+        "pyqt5-stubs": {
+            "hashes": [
+                "sha256:7a9069e6e33f7398e320adae7ca592f50e4bced8654f78e40ff82921ee09f1f4"
+            ],
+            "index": "pypi",
+            "version": "==5.14.2.0"
+        },
+        "pyqt5-tools": {
+            "hashes": [
+                "sha256:2cfbb93c447c805b12f1d26a7e692557ceb0751f9a46906dea7bf4ba8c6cadfd",
+                "sha256:7c4fecb3f712985b4b07c3bc02a05017f55e70aa0e24d128648633bb1d731bd7",
+                "sha256:841f77f1b5d79e5fdc7dc0b92dfe5222db84b7db5c2e5e9bd52ed9ef5d47d619",
+                "sha256:8e777a58423912d29c1de7c1174729449395ee4b9b322a54257d49a43acd6c98",
+                "sha256:a4c08dccb74bc7bbb4e2edd623969fe1f5d3927ac961660332f09de903cd1fea",
+                "sha256:e473a1c0cd093f82514e1ff1c505e616033db147e0db40504cebee241515fe10"
+            ],
+            "index": "pypi",
+            "version": "==5.13.0.1.5"
+        },
+        "python-dotenv": {
+            "hashes": [
+                "sha256:25c0ff1a3e12f4bde8d592cc254ab075cfe734fc5dd989036716fd17ee7e5ec7",
+                "sha256:3b9909bc96b0edc6b01586e1eed05e71174ef4e04c71da5786370cebea53ad74"
+            ],
+            "version": "==0.13.0"
+        },
+        "pyusb": {
+            "hashes": [
+                "sha256:4e9b72cc4a4205ca64fbf1f3fff39a335512166c151ad103e55c8223ac147362"
+            ],
+            "index": "pypi",
+            "version": "==1.0.2"
+        }
+    },
+    "develop": {}
+}
