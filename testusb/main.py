@@ -1,13 +1,24 @@
 import sys
 
 import usb
+import usb.backend.libusb1
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 
 from ui.main_window import Ui_MainWindow
 
+ENDPOINT_ADDRESS_MSG_IN = 0x01
+ENDPOINT_ADDRESS_MSG_OUT = 0x02
+ENDPOINT_ADDRESS_AUX_IN = 0x03
+ENDPOINT_ADDRESS_AUX_OUT = 0x04
+
 
 class MainWindow(QtWidgets.QMainWindow):
+    global msg_in
+    global msg_out
+    global aux_in
+    global aux_out
+
     def __init__(self):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
@@ -23,7 +34,6 @@ class MainWindow(QtWidgets.QMainWindow):
             list_usb = list(dev)
             print("%s libusb device(s) found..." % len(list_usb))
             for cfg in list_usb:
-                cfg.set_configuration()
                 print('-------------------------------------------------------------------------------------')
                 print('VendorID={}(0x{:04X}) & ProductID={}(0x{:04X})'.format(str(cfg.idVendor), cfg.idVendor,
                                                                               str(cfg.idProduct), cfg.idProduct))
@@ -31,13 +41,16 @@ class MainWindow(QtWidgets.QMainWindow):
             print(e)
 
     def find_specific_device(self):
+        backend = usb.backend.libusb1.get_backend(find_library=lambda x: "C:\Windows\System32\libusb0.dll")
+        print("backend: %s" % backend)
+
         # find our device
-        dev = usb.core.find(idVendor=0x3231, idProduct=0x0100)
+        dev = usb.core.find(idVendor=0x3231, idProduct=0x0100, backend=backend)
 
         # was it found?
         if dev is None:
             # raise ValueError('Device not found')
-            QMessageBox.information(self, "Warning", "Device not found", QMessageBox.Close)
+            QMessageBox.information(self, "Warning", "USB Device not found", QMessageBox.Close)
 
         # set the active configuration. With no arguments, the first
         # configuration will be the active one
@@ -47,18 +60,31 @@ class MainWindow(QtWidgets.QMainWindow):
         cfg = dev.get_active_configuration()
         intf = cfg[(0, 0)]
 
-        ep = usb.util.find_descriptor(
-            intf,
-            # match the first OUT endpoint
-            custom_match= \
-                lambda e: \
-                    usb.util.endpoint_direction(e.bEndpointAddress) == \
-                    usb.util.ENDPOINT_OUT)
+        # region [ENDPOINTS]
+        msg_in = usb.util.find_descriptor(intf, custom_match=lambda e: usb.util.endpoint_address(e.bEndpointAddress) == ENDPOINT_ADDRESS_MSG_IN)
+        if msg_in is None:
+            print('get USB ENDPOINT #1 msg_in fail !')
+        else:
+            print("\t[msg_in]\n%s" % msg_in)
 
-        assert ep is not None
+        msg_out = usb.util.find_descriptor(intf, custom_match=lambda e: usb.util.endpoint_address(e.bEndpointAddress) == ENDPOINT_ADDRESS_MSG_OUT)
+        if msg_in is None:
+            print('get USB ENDPOINT #2 msg_out fail !')
+        else:
+            print("\t[msg_out]\n%s" % msg_out)
 
-        # write the data
-        ep.write('test')
+        aux_in = usb.util.find_descriptor(intf, custom_match=lambda e: usb.util.endpoint_address(e.bEndpointAddress) == ENDPOINT_ADDRESS_AUX_IN)
+        if msg_in is None:
+            print('get USB ENDPOINT #3 aux_in fail !')
+        else:
+            print("\t[aux_in]\n%s" % aux_in)
+
+        aux_out = usb.util.find_descriptor(intf, custom_match=lambda e: usb.util.endpoint_address(e.bEndpointAddress) == ENDPOINT_ADDRESS_AUX_OUT)
+        if msg_in is None:
+            print('get USB ENDPOINT #4 aux_out fail !')
+        else:
+            print("\t[aux_out]\n%s" % aux_out)
+        # endregion [ENDPOINTS]
 
 
 if __name__ == '__main__':
