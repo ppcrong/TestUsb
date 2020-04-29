@@ -61,25 +61,29 @@ class MainWindow(QtWidgets.QMainWindow):
         intf = cfg[(0, 0)]
 
         # region [ENDPOINTS]
-        msg_in = usb.util.find_descriptor(intf, custom_match=lambda e: usb.util.endpoint_address(e.bEndpointAddress) == ENDPOINT_ADDRESS_MSG_IN)
+        msg_in = usb.util.find_descriptor(intf, custom_match=lambda e: usb.util.endpoint_address(
+            e.bEndpointAddress) == ENDPOINT_ADDRESS_MSG_IN)
         if msg_in is None:
             print('get USB ENDPOINT #1 msg_in fail !')
         else:
             print("\t[msg_in]\n%s" % msg_in)
 
-        msg_out = usb.util.find_descriptor(intf, custom_match=lambda e: usb.util.endpoint_address(e.bEndpointAddress) == ENDPOINT_ADDRESS_MSG_OUT)
+        msg_out = usb.util.find_descriptor(intf, custom_match=lambda e: usb.util.endpoint_address(
+            e.bEndpointAddress) == ENDPOINT_ADDRESS_MSG_OUT)
         if msg_out is None:
             print('get USB ENDPOINT #2 msg_out fail !')
         else:
             print("\t[msg_out]\n%s" % msg_out)
 
-        aux_in = usb.util.find_descriptor(intf, custom_match=lambda e: usb.util.endpoint_address(e.bEndpointAddress) == ENDPOINT_ADDRESS_AUX_IN)
+        aux_in = usb.util.find_descriptor(intf, custom_match=lambda e: usb.util.endpoint_address(
+            e.bEndpointAddress) == ENDPOINT_ADDRESS_AUX_IN)
         if aux_in is None:
             print('get USB ENDPOINT #3 aux_in fail !')
         else:
             print("\t[aux_in]\n%s" % aux_in)
 
-        aux_out = usb.util.find_descriptor(intf, custom_match=lambda e: usb.util.endpoint_address(e.bEndpointAddress) == ENDPOINT_ADDRESS_AUX_OUT)
+        aux_out = usb.util.find_descriptor(intf, custom_match=lambda e: usb.util.endpoint_address(
+            e.bEndpointAddress) == ENDPOINT_ADDRESS_AUX_OUT)
         if aux_out is None:
             print('get USB ENDPOINT #4 aux_out fail !')
         else:
